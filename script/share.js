@@ -1,4 +1,3 @@
-// share.js
 document.getElementById("share").addEventListener("click", () => {
     const playerName = player.name;
     const dateTime = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
@@ -16,4 +15,11 @@ document.getElementById("share").addEventListener("click", () => {
         console.error("클립보드 API를 지원하지 않는 브라우저입니다.");
         alert("클립보드에 복사하는 기능을 지원하지 않는 브라우저입니다.");
     }
+
+    // 마우스 오버 상태 제거
+    document.getElementById("share").classList.remove("hover");
+});
+
+document.getElementById("share").addEventListener("touchend", () => {
+    document.getElementById("share").classList.remove("hover");
 });
