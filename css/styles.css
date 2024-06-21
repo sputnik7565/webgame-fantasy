@@ -136,5 +136,10 @@ h1 {
     width: calc(100% - 120px);
 }
 
+/* styles.css */
+button:active, button:focus {
+    background-color: initial; /* 또는 기본 배경색 */
+}
+
 
 
