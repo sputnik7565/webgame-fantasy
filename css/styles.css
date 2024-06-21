@@ -1,0 +1,140 @@
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.shake {
+    animation: shake 0.5s;
+    animation-iteration-count: 1;
+}
+
+body {
+    font-family: 'Cinzel', serif;
+    background-color: #1b1b1b;
+    color: #e2e2e2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../img/background.jpg'); /* 판타지 배경 이미지 추가 */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#game-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ffcc00;
+}
+
+#player-status, #monster-status {
+    margin-bottom: 20px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#game-log {
+    height: 150px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    border: 1px solid #444;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+#game-log p {
+    margin: 10px 0; /* 위아래로 10px 간격 */
+    line-height: 1.5; /* 줄간격 추가 */
+}
+#controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 중앙 정렬 추가 */
+}
+
+#controls input, #controls button, #battle-controls button, #continue-controls button, #share-controls button {
+    margin: 5px 0;
+    width: 100%; /* 동일한 가로 사이즈를 설정 */
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box; /* 입력창과 버튼의 박스 크기 계산 포함 */
+}
+#controls input {
+    background-color: #fff;
+    color: #000;
+}
+
+#controls button:hover, #battle-controls button:hover, #continue-controls button:hover, #share-controls button:hover {
+    background-color: #666;
+}
+
+.health-bar-container {
+    width: 100%;
+    background-color: #555;
+    border-radius: 5px;
+}
+
+.health-bar {
+    height: 10px;
+    background-color: #ff3333;
+    border-radius: 5px;
+}
+
+.status-img {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    border-radius: 8px;
+    border: 2px solid #ffcc00; /* 기본 테두리 색상 */
+}
+
+.status-img[style*="border-color: green;"] {
+    border-color: green;
+}
+
+.status-img[style*="border-color: yellow;"] {
+    border-color: yellow;
+}
+
+.status-img[style*="border-color: orange;"] {
+    border-color: orange;
+}
+
+.status-text {
+    width: calc(100% - 120px);
+}
+
+
+
