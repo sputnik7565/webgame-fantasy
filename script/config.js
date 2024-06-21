@@ -1,5 +1,5 @@
 // config.js
-const baseURL = '../';
+const baseURL = 'webgame-fantasy/';
 
 const paths = {
     character: `${baseURL}script/character.js`,
