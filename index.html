@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,6 +81,11 @@
 
                 button.addEventListener('touchend', function() {
                     button.classList.remove('hover');
+                });
+
+                // 추가: 클릭 후 포커스를 제거하여 hover 상태를 명시적으로 해제
+                button.addEventListener('click', function() {
+                    button.blur();
                 });
             });
         });
