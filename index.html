@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy Battle Game</title>
+    <link id="styles" rel="stylesheet" href="">
+</head>
+<body>
+    <div id="game-container">
+        <div id="start-screen">
+            <h1>판타지 세계에서 레벨업</h1>
+            <div id="controls">
+                <input type="text" id="player-name" placeholder="캐릭터 이름">
+                <button id="start-game" class="button">게임 시작</button>
+            </div>
+        </div>
+        <div id="main-game" style="display: none;">
+            <div id="player-status"></div>
+            <div id="monster-status"></div>
+            <div id="game-log"></div>
+            <div id="battle-controls" style="display: none;">
+                <button id="attack" class="button">공격</button>
+                <button id="run" class="button">도망</button>
+            </div>
+            <div id="continue-controls" style="display: none;">
+                <button id="continue" class="button">계속 진행</button>
+            </div>
+            <div id="share-controls" style="display: none;">
+                <button id="share" class="button">공유하기</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function loadScript(url, callback) {
+            const script = document.createElement("script");
+            script.src = url;
+            script.onload = () => callback(null, script);
+            script.onerror = () => callback(new Error(`Failed to load script: ${url}`));
+            document.head.appendChild(script);
+        }
+
+        loadScript("http://sputnik.dothome.co.kr/game/script/config.js", (err) => {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            if (typeof paths !== 'undefined') {
+                document.getElementById('styles').href = paths.styles;
+                const scripts = [
+                    paths.character,
+                    paths.gameInit,
+                    paths.battle,
+                    paths.statusLog,
+                    paths.events,
+                    paths.share
+                ];
+
+                scripts.forEach(script => {
+                    const scriptElement = document.createElement('script');
+                    scriptElement.src = script;
+                    scriptElement.defer = true;
+                    document.body.appendChild(scriptElement);
+                });
+            } else {
+                console.error("config.js 로드 실패: paths 객체가 정의되지 않았습니다.");
+            }
+        });
+    </script>
+</body>
+</html>
