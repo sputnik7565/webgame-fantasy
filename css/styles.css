@@ -1,3 +1,4 @@
+/* styles.css */
 @keyframes shake {
     0% { transform: translate(1px, 1px) rotate(0deg); }
     10% { transform: translate(-1px, -2px) rotate(-1deg); }
@@ -31,6 +32,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    letter-spacing: -1.5px;
 }
 
 #game-container {
@@ -76,6 +78,7 @@ h1 {
     margin: 10px 0; /* 위아래로 10px 간격 */
     line-height: 1.5; /* 줄간격 추가 */
 }
+
 #controls {
     display: flex;
     flex-direction: column;
@@ -90,14 +93,17 @@ h1 {
     border: none;
     border-radius: 8px;
     box-sizing: border-box; /* 입력창과 버튼의 박스 크기 계산 포함 */
+    transition: background-color 0.3s, transform 0.2s; /* 전환 효과 추가 */
 }
+
 #controls input {
     background-color: #fff;
     color: #000;
 }
 
-#controls button:hover, #battle-controls button:hover, #continue-controls button:hover, #share-controls button:hover {
-    background-color: #666;
+#controls button:active, #battle-controls button:active, #continue-controls button:active, #share-controls button:active {
+    background-color: #666; /* 버튼 클릭 시 색상 */
+    transform: scale(0.99); /* 클릭 시 버튼이 살짝 작아지는 효과 */
 }
 
 .health-bar-container {
@@ -135,11 +141,3 @@ h1 {
 .status-text {
     width: calc(100% - 120px);
 }
-
-/* styles.css */
-button:active, button:focus {
-    background-color: initial; /* 또는 기본 배경색 */
-}
-
-
-
