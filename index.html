@@ -67,5 +67,22 @@
             }
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 모든 버튼 요소를 선택합니다.
+            var buttons = document.querySelectorAll('.button');
+
+            buttons.forEach(function(button) {
+                // 클릭 및 터치 이벤트 리스너를 추가합니다.
+                button.addEventListener('click', function() {
+                    button.classList.remove('hover');
+                });
+
+                button.addEventListener('touchend', function() {
+                    button.classList.remove('hover');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
