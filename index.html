@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,11 +75,25 @@
             buttons.forEach(function(button) {
                 // 클릭 및 터치 이벤트 리스너를 추가합니다.
                 button.addEventListener('click', function() {
-                    button.classList.remove('hover');
+                    var originalColor = window.getComputedStyle(button).backgroundColor;
+                    button.style.backgroundColor = '#666'; // 클릭 시 색상 변경
+                    button.style.transform = 'scale(0.99)'; // 클릭 시 크기 변경
+
+                    setTimeout(() => {
+                        button.style.backgroundColor = originalColor; // 원래 색상으로 복원
+                        button.style.transform = 'scale(1)'; // 원래 크기로 복원
+                    }, 100); // 0.2초 후에 원래 상태로 복원
                 });
 
                 button.addEventListener('touchend', function() {
-                    button.classList.remove('hover');
+                    var originalColor = window.getComputedStyle(button).backgroundColor;
+                    button.style.backgroundColor = '#666'; // 클릭 시 색상 변경
+                    button.style.transform = 'scale(0.99)'; // 클릭 시 크기 변경
+
+                    setTimeout(() => {
+                        button.style.backgroundColor = originalColor; // 원래 색상으로 복원
+                        button.style.transform = 'scale(1)'; // 원래 크기로 복원
+                    }, 100); // 0.2초 후에 원래 상태로 복원
                 });
 
                 // 추가: 클릭 후 포커스를 제거하여 hover 상태를 명시적으로 해제
