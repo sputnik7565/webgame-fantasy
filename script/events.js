@@ -78,11 +78,12 @@ function randomEvent(player) {
         }
     } else {
         const items = ["공격력 강화 약초", "방어력 강화 약초", "재생의 반지", "도망 티켓"];
-        const foundItem = items[Math.floor(Math.random() * (items.length - 1))]; // 재생의 반지 확률 감소
+        const foundItem = items[Math.floor(Math.random() * items.length)];
         let amount = 1;
         if (foundItem === "도망 티켓") {
             amount = Math.floor(Math.random() * 3) + 1;
             player.addRunTickets(amount);
+            logMessage += `도망 티켓을 ${amount}개 발견했습니다! 현재 도망 티켓: ${player.runTickets}개`;
         } else if (foundItem === "공격력 강화 약초") {
             const attackIncrease = 5;
             player.attack += attackIncrease;
@@ -92,8 +93,8 @@ function randomEvent(player) {
             player.defense += defenseIncrease;
             logMessage += `${foundItem}를(을) 발견했습니다! 허겁지겁 먹고 방어력이 ${defenseIncrease} 증가합니다.`;
         } else if (foundItem === "재생의 반지") {
-            if (!player.hasRegenRing) { // 재생의 반지 중복 획득 방지
-                player.hasRegenRing = true; // 재생의 반지 보유 상태 추가
+            if (!player.hasRegenRing) {
+                player.hasRegenRing = true;
                 logMessage += `${foundItem}를(을) 발견했습니다! 전투 중 턴마다 체력이 현재 체력의 5% 회복됩니다.`;
             } else {
                 logMessage += "이미 재생의 반지를 보유하고 있습니다!";
@@ -103,6 +104,7 @@ function randomEvent(player) {
     log(logMessage);
     updateStatus();
 }
+
 
 function displayFinalResult() {
     const dateTime = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
