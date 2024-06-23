@@ -1,6 +1,6 @@
 // events.js
 function nextTurn() {
-    if (Math.random() < 0) {  // 몬스터와 조우할 확률 0%
+    if (Math.random() < 0.7) {  // 몬스터와 조우할 확률 70%
         const monsters = createMonsters(player.level);
         currentMonster = monsters[Math.floor(Math.random() * monsters.length)];
         log(`${currentMonster.name}이(가) 나타났다!`);
