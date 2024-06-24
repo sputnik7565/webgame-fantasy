@@ -1,5 +1,5 @@
 function nextTurn() {
-    if (Math.random() < 0.2) {
+    if (Math.random() < 0.8) {
         const monsters = createMonsters(player.level);
         currentMonster = monsters[Math.floor(Math.random() * monsters.length)];
         log(`${currentMonster.name}이(가) 나타났다!`);
@@ -76,7 +76,7 @@ function randomEvent(player) {
             logMessage += "신비한 약초를 발견했습니다! 체력이 완전히 회복됩니다.";
         }
     } else {
-        const items = ["스킬"];
+        const items = ["방어력 강화 약초","공격력 강화 약초","재생의 반지","도망 티켓","스킬"];
         const foundItem = items[Math.floor(Math.random() * items.length)];
         let amount = 1;
         if (foundItem === "도망 티켓") {
