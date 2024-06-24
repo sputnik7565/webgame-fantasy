@@ -8,6 +8,7 @@ const paths = {
     statusLog: `${baseURL}script/status-log.js`,
     events: `${baseURL}script/events.js`,
     share: `${baseURL}script/share.js`,
+    skills: `${baseURL}script/skills.js`,
     styles: `${baseURL}css/styles.css`,
     playerImage: `${baseURL}img/player.jpg`,
     goblinImage: `${baseURL}img/goblin.jpg`,

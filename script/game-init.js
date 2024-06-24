@@ -3,6 +3,7 @@ document.getElementById("start-game").addEventListener("click", () => {
     const playerName = document.getElementById("player-name").value;
     if (playerName) {
         player = new Character(playerName, 100, 20, 5);
+        player.skills = []; // 초기 스킬은 빈 배열로 설정
         log(`${player.name}님, 환영합니다! 모험을 시작하세요.`);
 
         // 초기 화면을 숨기고 메인 게임 화면을 표시
