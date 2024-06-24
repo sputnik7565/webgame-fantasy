@@ -18,6 +18,17 @@ function nextTurn() {
     updateStatus();
 }
 
+
+// function reTurn() {
+//     randomEvent(player);
+//     document.getElementById("battle-controls").style.display = "none";
+//     document.getElementById("continue-controls").style.display = "block";
+    
+//     updateStatus();
+// }
+
+
+
 function createMonsters(playerLevel) {
     function getRandomLevel(baseLevel) {
         return Math.max(baseLevel + Math.floor(Math.random() * 3) - 1, 1);
@@ -142,12 +153,18 @@ function displayFinalResult() {
             if (retry) {
                 player = new Character(player.name, 100, 20, 5);
                 document.getElementById("game-log").innerHTML = "";
+                currentMonster = null;
                 log(`${player.name}님, 다시 모험을 시작하세요.`);
                 updateStatus();
                 document.getElementById("battle-controls").style.display = "none";
                 document.getElementById("continue-controls").style.display = "block";
                 document.getElementById("share-controls").style.display = "none";
                 nextTurn();
+                // reTurn();
+
+                // 초기 화면을 숨기고 메인 게임 화면을 표시
+                document.getElementById("start-screen").style.display = "none";
+                document.getElementById("main-game").style.display = "block";
             } else {
                 document.getElementById("battle-controls").style.display = "none";
                 document.getElementById("continue-controls").style.display = "none";
