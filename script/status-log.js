@@ -1,26 +1,19 @@
-// status-log.js
 function log(message) {
     const gameLog = document.getElementById("game-log");
-    gameLog.innerHTML = `<p>${message}</p>`;
-    gameLog.style.display = 'flex';
-    gameLog.style.alignItems = 'center';
-    gameLog.style.justifyContent = 'center';
+    gameLog.innerHTML = `<p>${message}</p>`; // 기존 내용을 지우고 새로운 로그만 추가
 }
 
-// 주인공과 몬스터의 종합적인 스텟을 계산하는 함수 추가
-function calculateStats(character) {
-    return character.level * 10 + character.hp + character.attack * 2 + character.defense * 2;
-}
-
-// 기존 updateStatus 함수 업데이트
 function updateStatus() {
     const playerStatus = document.getElementById("player-status");
     const monsterStatus = document.getElementById("monster-status");
+    let skillsText = player.skills.map(skill => `${skill.name}: ${skill.count}`).join(', ');
+
     playerStatus.innerHTML = `
         <img src="${paths.playerImage}" alt="주인공 이미지" class="status-img">
         <div class="status-text">
             ${player.name}<br>
-            레벨: ${player.level}, 체력: ${player.hp}/${player.maxHp}, 공격력: ${player.attack}, 방어력: ${player.defense}, 도망 티켓: ${player.runTickets}
+            레벨: ${player.level}, 체력: ${player.hp}/${player.maxHp}, 공격력: ${player.attack}, 방어력: ${player.defense}, 도망 티켓: ${player.runTickets}<br>
+            스킬: ${skillsText}
             <div class="health-bar-container">
                 <div class="health-bar" style="width: ${player.hp / player.maxHp * 100}%;"></div>
             </div>

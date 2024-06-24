@@ -1,4 +1,3 @@
-/* styles.css */
 @keyframes shake {
     0% { transform: translate(1px, 1px) rotate(0deg); }
     10% { transform: translate(-1px, -2px) rotate(-1deg); }
@@ -13,9 +12,19 @@
     100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
+@keyframes heal {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
 .shake {
     animation: shake 0.5s;
     animation-iteration-count: 1;
+}
+
+.heal {
+    animation: heal 0.5s;
 }
 
 body {
@@ -28,7 +37,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('../img/background.jpg'); /* 판타지 배경 이미지 추가 */
+    background-image: url('../img/background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -75,25 +84,25 @@ h1 {
 }
 
 #game-log p {
-    margin: 10px 0; /* 위아래로 10px 간격 */
-    line-height: 1.5; /* 줄간격 추가 */
+    margin: 10px 0;
+    line-height: 1.5;
 }
 
 #controls {
     display: flex;
     flex-direction: column;
-    align-items: center; /* 중앙 정렬 추가 */
+    align-items: center;
 }
 
 #controls input, #controls button, #battle-controls button, #continue-controls button, #share-controls button {
     margin: 5px 0;
-    width: 100%; /* 동일한 가로 사이즈를 설정 */
+    width: 100%;
     padding: 10px;
     font-size: 1em;
     border: none;
     border-radius: 8px;
-    box-sizing: border-box; /* 입력창과 버튼의 박스 크기 계산 포함 */
-    transition: background-color 0.3s, transform 0.2s; /* 전환 효과 추가 */
+    box-sizing: border-box;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 #controls input {
@@ -102,8 +111,8 @@ h1 {
 }
 
 #controls button:active, #battle-controls button:active, #continue-controls button:active, #share-controls button:active {
-    background-color: #666; /* 버튼 클릭 시 색상 */
-    transform: scale(0.99); /* 클릭 시 버튼이 살짝 작아지는 효과 */
+    background-color: #666;
+    transform: scale(0.99);
 }
 
 .health-bar-container {
@@ -123,7 +132,7 @@ h1 {
     height: 100px;
     margin-right: 10px;
     border-radius: 8px;
-    border: 2px solid #ffcc00; /* 기본 테두리 색상 */
+    border: 2px solid #ffcc00;
 }
 
 .status-img[style*="border-color: green;"] {

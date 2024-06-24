@@ -2,7 +2,7 @@
 document.getElementById("share").addEventListener("click", () => {
     const playerName = player.name;
     const dateTime = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
-    const gameTitle = "판타지 세계에서 레벨업"; // 게임 타이틀
+    const gameTitle = "판타지 세계에서 레벨업";
     const finalLog = `${playerName}님이 ${gameTitle}에서 최종 레벨 ${player.level}, 처치한 몬스터 수 ${player.monsterKills}의 기록을 달성했습니다. - ${dateTime}`;
     
     if (navigator.clipboard) {

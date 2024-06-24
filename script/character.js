@@ -1,4 +1,3 @@
-// character.js
 class Character {
     constructor(name, maxHp, attack, defense, level = 1, img = paths.playerImage) {
         this.name = name;
@@ -8,11 +7,13 @@ class Character {
         this.defense = defense;
         this.level = level;
         this.experience = 0;
-        this.nextLevelExp = 100; // 초기 레벨업에 필요한 경험치
-        this.runTickets = 10; // 도망 티켓 초기값
-        this.monsterKills = 0; // 처치한 몬스터 수
-        this.img = img; // 이미지 파일 이름
-        this.hasRegenRing = false; // 재생의 반지 보유 상태
+        this.nextLevelExp = 100;
+        this.runTickets = 10;
+        this.monsterKills = 0;
+        this.img = img;
+        this.hasRegenRing = false;
+        this.skills = [];
+        this.statusEffects = [];
     }
 
     isAlive() {
@@ -20,19 +21,24 @@ class Character {
     }
 
     takeDamage(damage) {
-        const actualDamage = Math.max(damage - this.defense, 1); // 최소 피해 1
+        const actualDamage = Math.max(damage - this.defense, 1);
         this.hp = Math.max(this.hp - actualDamage, 0);
         return actualDamage;
     }
 
     dealDamage(enemy) {
-        const critChance = Math.random() < 0.1; // 10% 확률로 크리티컬 히트
+        const hitChance = Math.random();
+        if (hitChance < 0.1) {
+            log(`${this.name}의 공격이 빗나갔습니다!`);
+            return { damage: 0, logMessage: "빗나감!" };
+        }
+        const critChance = Math.random() < 0.1;
         let damage = Math.floor(Math.random() * this.attack);
-        damage = Math.max(damage, 1); // 최소 피해 1
+        damage = Math.max(damage, 1);
         let logMessage = "";
         if (critChance) {
-            damage = Math.floor(damage * 1.5); // 크리티컬 히트 시 1.5배 데미지
-            logMessage = "회심의 일격! ";
+            damage = Math.floor(damage * 1.5);
+            logMessage = "치명타! ";
         }
         const actualDamage = enemy.takeDamage(damage);
         return { damage: actualDamage, logMessage };
@@ -56,7 +62,6 @@ class Character {
         this.attack += 5;
         this.defense += 2;
 
-        // 레벨이 5의 배수일 때 레벨업에 필요한 총 경험치 10% 증가
         if (this.level % 5 === 0) {
             this.nextLevelExp = Math.floor(this.nextLevelExp * 1.1);
         }
@@ -69,24 +74,65 @@ class Character {
         log(`도망 티켓을 ${amount}개 얻었습니다! 현재 도망 티켓: ${this.runTickets}개`);
         updateStatus();
     }
-}
 
-class Monster extends Character {
-    constructor(name, maxHp, attack, defense, level, dialog, img) {
-        super(name, maxHp, attack, defense, level, img);
-        this.dialog = dialog;
-        this.borderColor = this.calculateBorderColor();
+    applyStatusEffects() {
+        this.statusEffects.forEach(effect => effect.apply(this));
+        this.statusEffects = this.statusEffects.filter(effect => !effect.isExpired());
     }
 
-    calculateBorderColor() {
-        const playerStats = calculateStats(player);
-        const monsterStats = calculateStats(this);
-        let borderColor = 'yellow'; // 기본값: 비슷한 전투력
-        if (playerStats > monsterStats * 1.5) {
-            borderColor = 'green'; // 주인공이 매우 유리한 경우
-        } else if (playerStats < monsterStats * 0.5) {
-            borderColor = 'orange'; // 몬스터가 매우 유리한 경우
+    addSkill(newSkill) {
+        const existingSkill = this.skills.find(skill => skill.name === newSkill.name);
+        if (existingSkill) {
+            existingSkill.count += newSkill.count;
+        } else {
+            this.skills.push(newSkill);
         }
-        return borderColor;
+        updateStatus(); // 스킬 목록이 변경되면 상태 업데이트
     }
 }
+
+class StatusEffect {
+    constructor(name, duration, applyEffect) {
+        this.name = name;
+        this.duration = duration;
+        this.applyEffect = applyEffect;
+    }
+
+    apply(target) {
+        this.applyEffect(target);
+        this.duration--;
+    }
+
+    isExpired() {
+        return this.duration <= 0;
+    }
+}
+
+// class Monster extends Character {
+//     constructor(name, maxHp, attack, defense, level, dialog, img, abilities = []) {
+//         super(name, maxHp, attack, defense, level, img);
+//         this.dialog = dialog;
+//         this.borderColor = this.calculateBorderColor();
+//         this.abilities = abilities;
+//     }
+
+//     useAbility() {
+//         if (this.abilities.length > 0) {
+//             const ability = this.abilities[Math.floor(Math.random() * this.abilities.length)];
+//             log(`${this.name}이(가) ${ability}을(를) 사용했습니다!`);
+//         }
+//     }
+
+//     calculateBorderColor() {
+//         const playerStats = calculateStats(player);
+//         const monsterStats = calculateStats(this);
+//         let borderColor = 'yellow';
+//         if (playerStats > monsterStats * 1.5) {
+//             borderColor = 'green';
+//         } else if (playerStats < monsterStats * 0.5) {
+//             borderColor = 'orange';
+//         }
+//         return borderColor;
+//     }
+// }
+
