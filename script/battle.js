@@ -5,7 +5,7 @@ document.getElementById("attack").addEventListener("click", () => {
         let logMessage = "";
 
         if (player.hasRegenRing) {
-            const healAmount = Math.floor(player.hp * 0.05);
+            const healAmount = Math.floor(player.maxHp * 0.05);
             player.hp = Math.min(player.hp + healAmount, player.maxHp);
             logMessage += `재생의 반지 효과로 ${healAmount} 만큼 체력이 회복되었습니다.<br>`;
         }
