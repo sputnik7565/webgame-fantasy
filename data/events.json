@@ -1,0 +1,82 @@
+{
+  "events": [
+    {
+      "name": "애묘인의 지갑",
+      "probability": 0.15,
+      "effect": {
+        "type": "buffAttack",
+        "value": 5
+      },
+      "message": "길에서 애묘인의 지갑을 발견했습니다!\n얼씨구나 주워들고 공격력이 {value} 증가합니다."
+    },
+    {
+      "name": "오앤오의 자존감",
+      "probability": 0.15,
+      "effect": {
+        "type": "buffDefense",
+        "value": 5
+      },
+      "message": "오앤오의 자존감이 떨어졌습니다.\n방어력이 {value} 증가합니다."
+    },
+    {
+      "name": "애묘인의 어깨뽕",
+      "probability": 0.15,
+      "effect": {
+        "type": "buffHp",
+        "value": 10
+      },
+      "message": "하늘에서 애묘인의 어깨뽕이 떨어졌습니다.\n체력이 {value} 증가합니다."
+    },
+    {
+      "name": "신비한 약초",
+      "probability": 0.2,
+      "effect": {
+        "type": "fullHeal"
+      },
+      "message": "신비한 약초를 발견했습니다!\n체력이 완전히 회복됩니다."
+    },
+    {
+      "name": "절대반지",
+      "probability": 0.15,
+      "effect": {
+        "type": "buffAll",
+        "value": 3
+      },
+      "message": "절대반지를 발견했습니다!\n골룸이 볼까봐 얼른 착용하고 전체 스텟이 {value}% 증가합니다."
+    },
+    {
+      "name": "공격력 강화 약초",
+      "probability": 0.0,
+      "effect": {
+        "type": "buffAttack22",
+        "value": 5
+      },
+      "message": "공격력 강화 약초를 발견했습니다!\n허겁지겁 먹고 공격력이 {value} 증가합니다."
+    },
+    {
+      "name": "방어력 강화 약초",
+      "probability": 0.0,
+      "effect": {
+        "type": "buffDefense22",
+        "value": 3
+      },
+      "message": "방어력 강화 약초를 발견했습니다!\n허겁지겁 먹고 방어력이 {value} 증가합니다."
+    },
+    {
+      "name": "재생의 반지",
+      "probability": 0.05,
+      "effect": {
+        "type": "regenRing"
+      },
+      "message": "재생의 반지를 발견했습니다!\n전투 중 턴마다 체력이 현재 체력의 5% 회복됩니다."
+    },
+    {
+      "name": "도망 티켓",
+      "probability": 0.3,
+      "effect": {
+        "type": "escapeTicket"
+      },
+      "message": "도망 티켓을 {value}개 발견했습니다!\n현재 도망 티켓: {totalTickets}개"
+    }
+  ]
+}

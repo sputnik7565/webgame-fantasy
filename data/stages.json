@@ -1,0 +1,134 @@
+{
+  "stages": [
+    {
+      "level": 1,
+      "name": "고블린 숲",
+      "description": "고블린들이 우글거리는 어두운 숲입니다.",
+      "background": "goblin_forest_background.jpg",
+      "monsters": ["고블린 전사", "고블린 궁수", "고블린 주술사"],
+      "boss": "고블린 왕",
+      "statRatio": {
+        "attack": 1,
+        "defense": 1.2,
+        "hp": 1
+      }
+    },
+    {
+      "level": 2,
+      "name": "오크 영토",
+      "description": "오크들의 영토입니다. 거친 전사들이 살고 있습니다.",
+      "background": "orc_territory_background.jpg",
+      "monsters": ["오크 전사", "오크 광전사", "오크 주술사"],
+      "boss": "오크 대장",
+      "statRatio": {
+        "attack": 1.2,
+        "defense": 1,
+        "hp": 1.1
+      }
+    },
+    {
+      "level": 3,
+      "name": "트롤 동굴",
+      "description": "거대한 트롤들이 사는 어두운 동굴입니다.",
+      "background": "troll_cave_background.jpg",
+      "monsters": ["트롤 전사", "트롤 수호자", "트롤 주술사"],
+      "boss": "트롤 왕",
+      "statRatio": {
+        "attack": 1.1,
+        "defense": 1.3,
+        "hp": 1.4
+      }
+    },
+    {
+      "level": 4,
+      "name": "해골 지하묘지",
+      "description": "죽은 자들이 깨어난 음산한 지하묘지입니다.",
+      "background": "skeleton_graveyard_background.jpg",
+      "monsters": ["해골 전사", "해골 궁수", "해골 마법사"],
+      "boss": "해골 군주",
+      "statRatio": {
+        "attack": 1.2,
+        "defense": 1,
+        "hp": 1
+      }
+    },
+    {
+      "level": 5,
+      "name": "좀비 도시",
+      "description": "좀비들이 배회하는 황폐한 도시입니다.",
+      "background": "zombie_city_background.jpg",
+      "monsters": ["좀비 전사", "좀비 광전사", "좀비 마법사"],
+      "boss": "좀비 군주",
+      "statRatio": {
+        "attack": 1,
+        "defense": 1.2,
+        "hp": 1.4
+      }
+    },
+    {
+      "level": 6,
+      "name": "유령의 성",
+      "description": "유령들이 떠도는 으스스한 성입니다.",
+      "background": "ghost_castle_background.jpg",
+      "monsters": ["유령 전사", "유령 궁수", "유령 마법사"],
+      "boss": "유령 왕",
+      "statRatio": {
+        "attack": 1.1,
+        "defense": 1,
+        "hp": 1.1
+      }
+    },
+    {
+      "level": 7,
+      "name": "늑대인간의 숲",
+      "description": "늑대인간들이 사는 달빛 가득한 숲입니다.",
+      "background": "werewolf_forest_background.jpg",
+      "monsters": ["늑대인간 전사", "늑대인간 궁수", "늑대인간 주술사"],
+      "boss": "늑대인간 군주",
+      "statRatio": {
+        "attack": 1.1,
+        "defense": 1,
+        "hp": 1.2
+      }
+    },
+    {
+      "level": 8,
+      "name": "흡혈귀의 성",
+      "description": "흡혈귀들이 지배하는 고딕 양식의 성입니다.",
+      "background": "vampire_castle_background.jpg",
+      "monsters": ["흡혈귀 하인", "흡혈귀 전사", "흡혈귀 마법사"],
+      "boss": "흡혈귀 군주",
+      "statRatio": {
+        "attack": 1.15,
+        "defense": 1.15,
+        "hp": 1.1
+      }
+    },
+    {
+      "level": 9,
+      "name": "용의 계곡",
+      "description": "드래곤들이 서식하는 험준한 계곡입니다.",
+      "background": "dragon_valley_background.jpg",
+      "monsters": ["어린 용", "성체 용", "용의 기사"],
+      "boss": "용의 군주",
+      "statRatio": {
+        "attack": 1.18,
+        "defense": 1.1,
+        "hp": 1.3
+      }
+    },
+    {
+      "level": 10,
+      "name": "악마의 지옥문",
+      "description": "악마들의 세계로 통하는 지옥의 문입니다.",
+      "background": "demon_hellgate_background.jpg",
+      "monsters": ["작은 악마", "중급 악마", "악마 마법사"],
+      "boss": "악마 군주",
+      "statRatio": {
+        "attack": 1.2,
+        "defense": 1.15,
+        "hp": 1.4
+      }
+    }
+  ]
+}

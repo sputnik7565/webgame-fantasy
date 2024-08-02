@@ -1,106 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fantasy Battle Game</title>
-    <link id="styles" rel="stylesheet" href="">
+    <title>판타지 세계에서 레벨업</title>
+    <link rel="shortcut icon" href="favicon.ico" type="img/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <style>
+        .rolling-container {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #00000082;
+            color: rgba(69, 255, 91, 0.846);
+            text-align: center;
+            height: 20px; /* 고정된 높이 설정 */
+            line-height: 20px; /* 텍스트를 중앙에 맞추기 */
+            padding: 10px 0;
+            font-size: 12px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .visible {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <div id="game-container">
         <div id="start-screen">
-            <h1>판타지 세계에서 레벨업</h1>
+            <h1 id="game-title">판타지 세계에서 레벨업</h1>
+            <div id="player-image-selection">
+                <h3>캐릭터의 이미지를 선택해 주세요</h3>
+                <div class="image-grid">
+                    <div class="image-container"><img src="img/player/player_01.jpg" alt="Player 1" class="player-image selected" data-image="player_01.jpg"></div>
+                    <div class="image-container"><img src="img/player/player_02.jpg" alt="Player 2" class="player-image" data-image="player_02.jpg"></div>
+                    <div class="image-container"><img src="img/player/player_03.jpg" alt="Player 3" class="player-image" data-image="player_03.jpg"></div>
+                    <div class="image-container"><img src="img/player/player_04.jpg" alt="Player 4" class="player-image" data-image="player_04.jpg"></div>
+                    <div class="image-container"><img src="img/player/player_05.jpg" alt="Player 3" class="player-image" data-image="player_05.jpg"></div>
+                    <div class="image-container"><img src="img/player/player_06.jpg" alt="Player 4" class="player-image" data-image="player_06.jpg"></div>
+                    <div class="image-container"><img src="img/player/player_07.jpg" alt="Player 3" class="player-image" data-image="player_07.jpg"></div>
+                    <div class="image-container"><img src="img/player/player_08.jpg" alt="Player 4" class="player-image" data-image="player_08.jpg"></div>                    
+                </div>
+            </div>
             <div id="controls">
-                <input type="text" id="player-name" placeholder="캐릭터 이름">
-                <button id="start-game" class="button">게임 시작</button>
+                <input type="text" id="player-name" placeholder="캐릭터 이름을 입력하세요">
+                <button id="start-game">게임 시작</button>
             </div>
         </div>
+
         <div id="main-game" style="display: none;">
+            <div id="stage-info">
+                <h2 id="stage-name"></h2>
+                <p id="boss-progress"></p>
+            </div>
             <div id="player-status"></div>
             <div id="monster-status"></div>
             <div id="game-log"></div>
             <div id="battle-controls" style="display: none;">
-                <button id="attack" class="button">공격</button>
-                <button id="run" class="button">도망</button>
+                <button id="attack">공격</button>
+                <button id="dragon-rage" disabled>드래곤의 분노</button>
+                <button id="run">도망</button>
             </div>
             <div id="continue-controls" style="display: none;">
-                <button id="continue" class="button">계속 진행</button>
+                <button id="continue">계속 진행</button>
             </div>
             <div id="share-controls" style="display: none;">
-                <button id="share" class="button">공유하기</button>
+                <button id="share">공유하기</button>
             </div>
         </div>
     </div>
+    <!-- 롤링 텍스트 영역 -->
+    <div class="rolling-container">
+        <div class="rolling-text hidden" id="rollingText"></div>
+    </div>
     <script>
-        function loadScript(url, callback) {
-            const script = document.createElement("script");
-            script.src = url;
-            script.onload = () => callback(null, script);
-            script.onerror = () => callback(new Error(`Failed to load script: ${url}`));
-            document.head.appendChild(script);
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            // JSON 데이터
+            const data = {
+                "messages": [
+                    "레벨 업 시 상승시킬 스테이터스를 직접 선택할 수 있습니다.",
+                    "도망 티켓을 적절히 사용해서 이벤트로 케릭터를 성장시켜 보세요.",
+                    "보스 몬스터를 클리어하면 스테이터스 2배!!",
+                    "드래곤의 분노를 모아 적절히 활용해 보세요!",
+                    "레벨 업 시 '신이시여' 선택 보상 추가!",
+                    "회차 별 난이도 조정!"
+                ]
+            };
 
-        loadScript("script/config.js", (err) => {
-            if (err) {
-                console.error(err);
-                return;
-            }
-            if (typeof paths !== 'undefined') {
-                document.getElementById('styles').href = paths.styles;
-                const scripts = [
-                    paths.character,
-                    paths.gameInit,
-                    paths.battle,
-                    paths.statusLog,
-                    paths.events,
-                    paths.share,
-                    "script/monster.js",  // 추가된 스크립트
-                    "script/skills.js"
-                ];
+            const rollingTextElement = document.getElementById('rollingText');
+            const messages = data.messages;
+            let messageIndex = 0;
 
-                scripts.forEach(script => {
-                    const scriptElement = document.createElement('script');
-                    scriptElement.src = script;
-                    scriptElement.defer = true;
-                    document.body.appendChild(scriptElement);
-                });
-            } else {
-                console.error("config.js 로드 실패: paths 객체가 정의되지 않았습니다.");
+            function updateRollingText() {
+                rollingTextElement.classList.remove('visible');
+                rollingTextElement.classList.add('hidden');
+                setTimeout(() => {
+                    rollingTextElement.textContent = messages[messageIndex];
+                    rollingTextElement.classList.remove('hidden');
+                    rollingTextElement.classList.add('visible');
+                    messageIndex = (messageIndex + 1) % messages.length;
+                }, 500); // 짧은 딜레이 후 메시지 변경
             }
+
+            updateRollingText();
+            setInterval(updateRollingText, 5000); // 3초마다 업데이트
         });
     </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var buttons = document.querySelectorAll('.button');
+    <script type="module" src="./src/main.js"></script>
 
-            buttons.forEach(function(button) {
-                button.addEventListener('click', function() {
-                    var originalColor = window.getComputedStyle(button).backgroundColor;
-                    button.style.backgroundColor = '#666';
-                    button.style.transform = 'scale(0.99)';
 
-                    setTimeout(() => {
-                        button.style.backgroundColor = originalColor;
-                        button.style.transform = 'scale(1)';
-                    }, 100);
-                });
-
-                button.addEventListener('touchend', function() {
-                    var originalColor = window.getComputedStyle(button).backgroundColor;
-                    button.style.backgroundColor = '#666';
-                    button.style.transform = 'scale(0.99)';
-
-                    setTimeout(() => {
-                        button.style.backgroundColor = originalColor;
-                        button.style.transform = 'scale(1)';
-                    }, 100);
-                });
-
-                button.addEventListener('click', function() {
-                    button.blur();
-                });
-            });
-        });
-    </script>
 </body>
 </html>
