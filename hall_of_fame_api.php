@@ -4,10 +4,10 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 
-$servername = "localhost";
-$username = "kc1979";
-$password = "bwv1004@@";
-$dbname = "kc1979";
+$servername = "******";
+$username = "******";
+$password = "******";
+$dbname = "******";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
