@@ -1,0 +1,21 @@
+{
+  "gameTitle": "판타지 세계에서 레벨업",
+  "startMessage": "{playerName}님, 환영합니다! 모험을 시작하세요.",
+  "stageEnterMessage": "{stageName}에 입장했습니다.",
+  "monsterAppearMessage": "{monsterName}이(가) 나타났다!",
+  "bossAppearMessage": "보스 {bossName}이(가) 등장했습니다!",
+  "attackMessage": "{attacker}이(가) {defender}에게 {damage}의 피해를 입혔습니다!",
+  "missMessage": "{attacker}의 공격이 빗나갔습니다!",
+  "criticalHitMessage": "치명타! ",
+  "monsterDefeatMessage": "{monsterName}을(를) 물리쳤습니다! 획득한 경험치: {exp}",
+  "levelUpMessage": "{playerName}의 레벨이 올랐습니다! 현재 레벨: {level}",
+  "gameOverMessage": "{playerName}이(가) 쓰러졌습니다. 게임 오버!",
+  "escapeSuccessMessage": "{playerName}이(가) {monsterName}으로부터 도망쳤습니다. 남은 도망 티켓: {tickets}개",
+  "escapeFailMessage": "도망 티켓이 모두 소진되었습니다. 더 이상 도망칠 수 없습니다!",
+  "escapeUnluckyMessage": "{playerName}이(가) 재수없게 발이 미끄러져 도망치다 넘어졌습니다.",
+  "bossDefeatMessage": "보스 {bossName}을(를) 물리쳤습니다!",
+  "gameClearMessage": "축하합니다! {playerName}님이 모든 스테이지를 클리어하셨습니다!",
+  "gameRestartMessage": "{round}회차 게임을 시작합니다.",
+  "shareMessage": "{playerName}님이 {gameTitle}에서 최종 레벨 {level}, 처치한 몬스터 수 {kills}, {round}회차 {stage}스테이지 도달의 기록을 달성했습니다. - {dateTime}",
+  "bossReappearMessage": "보스가 다시 나타났습니다!"
+}

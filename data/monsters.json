@@ -1,0 +1,333 @@
+{
+  "monsters": [
+    {
+      "name": "고블린 전사",
+      "type": "normal",
+      "image": "goblin_warrior.jpg",
+      "abilities": [
+        "날카로운 칼날"
+      ]
+    },
+    {
+      "name": "고블린 궁수",
+      "type": "normal",
+      "image": "goblin_archer.jpg",
+      "abilities": [
+        "독화살"
+      ]
+    },
+    {
+      "name": "고블린 주술사",
+      "type": "normal",
+      "image": "goblin_shaman.jpg",
+      "abilities": [
+        "혼란의 주문"
+      ]
+    },
+    {
+      "name": "고블린 왕",
+      "type": "boss",
+      "image": "goblin_king.jpg",
+      "abilities": [
+        "왕의 분노"
+      ],
+      "criticalChance": 0.3
+    },
+    {
+      "name": "오크 전사",
+      "type": "normal",
+      "image": "orc_warrior.jpg",
+      "abilities": [
+        "오크의 분노"
+      ]
+    },
+    {
+      "name": "오크 광전사",
+      "type": "normal",
+      "image": "orc_berserker.jpg",
+      "abilities": [
+        "광폭의 난타"
+      ]
+    },
+    {
+      "name": "오크 주술사",
+      "type": "normal",
+      "image": "orc_shaman.jpg",
+      "abilities": [
+        "파멸의 일격"
+      ]
+    },
+    {
+      "name": "오크 대장",
+      "type": "boss",
+      "image": "orc_chieftain.jpg",
+      "abilities": [
+        "강력한 맹타"
+      ]
+    },
+    {
+      "name": "트롤 전사",
+      "type": "normal",
+      "image": "troll_warrior.jpg",
+      "abilities": [
+        "트롤의 강타"
+      ]
+    },
+    {
+      "name": "트롤 수호자",
+      "type": "normal",
+      "image": "troll_guardian.jpg",
+      "abilities": [
+        "강철의 주먹"
+      ]
+    },
+    {
+      "name": "트롤 주술사",
+      "type": "normal",
+      "image": "troll_shaman.jpg",
+      "abilities": [
+        "돌풍의 일격"
+      ]
+    },
+    {
+      "name": "트롤 왕",
+      "type": "boss",
+      "image": "troll_king.jpg",
+      "abilities": [
+        "왕의 지배"
+      ],
+      "criticalChance": 0.35
+    },
+    {
+      "name": "해골 전사",
+      "type": "normal",
+      "image": "skeleton_warrior.jpg",
+      "abilities": [
+        "해골의 일격"
+      ]
+    },
+    {
+      "name": "해골 궁수",
+      "type": "normal",
+      "image": "skeleton_archer.jpg",
+      "abilities": [
+        "암흑의 사격"
+      ]
+    },
+    {
+      "name": "해골 마법사",
+      "type": "normal",
+      "image": "skeleton_mage.jpg",
+      "abilities": [
+        "죽음의 손길"
+      ]
+    },
+    {
+      "name": "해골 군주",
+      "type": "boss",
+      "image": "skeleton_lord.jpg",
+      "abilities": [
+        "저주받은 강타"
+      ],
+      "criticalChance": 0.4
+    },
+    {
+      "name": "좀비 전사",
+      "type": "normal",
+      "image": "zombie_warrior.jpg",
+      "abilities": [
+        "좀비의 일격"
+      ]
+    },
+    {
+      "name": "좀비 광전사",
+      "type": "normal",
+      "image": "zombie_berserker.jpg",
+      "abilities": [
+        "부패의 강타"
+      ]
+    },
+    {
+      "name": "좀비 마법사",
+      "type": "normal",
+      "image": "zombie_mage.jpg",
+      "abilities": [
+        "어둠의 저주"
+      ]
+    },
+    {
+      "name": "좀비 군주",
+      "type": "boss",
+      "image": "zombie_lord.jpg",
+      "abilities": [
+        "망자의 통치"
+      ],
+      "criticalChance": 0.35
+    },
+    {
+      "name": "유령 전사",
+      "type": "normal",
+      "image": "ghost_warrior.jpg",
+      "abilities": [
+        "유령의 검"
+      ]
+    },
+    {
+      "name": "유령 궁수",
+      "type": "normal",
+      "image": "ghost_archer.jpg",
+      "abilities": [
+        "망령의 화살"
+      ]
+    },
+    {
+      "name": "유령 마법사",
+      "type": "normal",
+      "image": "ghost_mage.jpg",
+      "abilities": [
+        "환영의 주문"
+      ]
+    },
+    {
+      "name": "유령 왕",
+      "type": "boss",
+      "image": "ghost_king.jpg",
+      "abilities": [
+        "왕의 공포"
+      ],
+      "criticalChance": 0.35
+    },
+    {
+      "name": "늑대인간 전사",
+      "type": "normal",
+      "image": "werewolf_warrior.jpg",
+      "abilities": [
+        "늑대의 일격"
+      ]
+    },
+    {
+      "name": "늑대인간 궁수",
+      "type": "normal",
+      "image": "werewolf_archer.jpg",
+      "abilities": [
+        "늑대의 사격"
+      ]
+    },
+    {
+      "name": "늑대인간 주술사",
+      "type": "normal",
+      "image": "werewolf_shaman.jpg",
+      "abilities": [
+        "달빛의 저주"
+      ]
+    },
+    {
+      "name": "늑대인간 군주",
+      "type": "boss",
+      "image": "werewolf_lord.jpg",
+      "abilities": [
+        "늑대의 통치"
+      ],
+      "criticalChance": 0.4
+    },
+    {
+      "name": "흡혈귀 하인",
+      "type": "normal",
+      "image": "vampire_servant.jpg",
+      "abilities": [
+        "흡혈의 손길"
+      ]
+    },
+    {
+      "name": "흡혈귀 전사",
+      "type": "normal",
+      "image": "vampire_warrior.jpg",
+      "abilities": [
+        "피의 일격"
+      ]
+    },
+    {
+      "name": "흡혈귀 마법사",
+      "type": "normal",
+      "image": "vampire_mage.jpg",
+      "abilities": [
+        "피의 저주"
+      ]
+    },
+    {
+      "name": "흡혈귀 군주",
+      "type": "boss",
+      "image": "vampire_lord.jpg",
+      "abilities": [
+        "군주의 흡혈"
+      ],
+      "criticalChance": 0.5
+    },
+    {
+      "name": "어린 용",
+      "type": "normal",
+      "image": "young_dragon.jpg",
+      "abilities": [
+        "용의 발톱"
+      ]
+    },
+    {
+      "name": "성체 용",
+      "type": "normal",
+      "image": "adult_dragon.jpg",
+      "abilities": [
+        "화염의 일격"
+      ]
+    },
+    {
+      "name": "용의 기사",
+      "type": "normal",
+      "image": "dragon_knight.jpg",
+      "abilities": [
+        "기사의 맹공"
+      ]
+    },
+    {
+      "name": "용의 군주",
+      "type": "boss",
+      "image": "dragon_lord.jpg",
+      "abilities": [
+        "군주의 화염"
+      ],
+      "criticalChance": 0.4
+    },
+    {
+      "name": "작은 악마",
+      "type": "normal",
+      "image": "small_demon.jpg",
+      "abilities": [
+        "불길한 타격"
+      ]
+    },
+    {
+      "name": "중급 악마",
+      "type": "normal",
+      "image": "mid_demon.jpg",
+      "abilities": [
+        "악마의 맹공"
+      ]
+    },
+    {
+      "name": "악마 마법사",
+      "type": "normal",
+      "image": "demon_mage.jpg",
+      "abilities": [
+        "지옥의 불꽃"
+      ]
+    },
+    {
+      "name": "악마 군주",
+      "type": "boss",
+      "image": "demon_lord.jpg",
+      "abilities": [
+        "군주의 화염"
+      ],
+      "criticalChance": 0.5
+    }
+  ]
+}

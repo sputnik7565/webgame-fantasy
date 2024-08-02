@@ -1,0 +1,24 @@
+{
+    "skills": [
+      {
+        "name": "치유",
+        "type": "heal",
+        "value": 30,
+        "description": "{target}의 체력이 {value} 회복되었습니다."
+      },
+      {
+        "name": "방어 강화",
+        "type": "buff",
+        "stat": "defense",
+        "value": 10,
+        "duration": 1,
+        "description": "{target}의 방어력이 {value} 증가했습니다."
+      },
+      {
+        "name": "화염구",
+        "type": "damage",
+        "value": 50,
+        "description": "{target}이(가) 화염구 공격을 받아 {value}의 피해를 입었습니다."
+      }
+    ]
+  }
